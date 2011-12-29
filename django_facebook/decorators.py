@@ -1,6 +1,6 @@
 from django.contrib.auth import REDIRECT_FIELD_NAME
 from django_facebook import settings as facebook_settings
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django_facebook.utils import get_oauth_url, parse_scope
 from django.utils.decorators import available_attrs
 from django.utils.functional import wraps
