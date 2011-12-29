@@ -30,7 +30,9 @@ def facebook_required(view_func=None, scope=facebook_settings.FACEBOOK_DEFAULT_S
                 return view_func(request, *args, **kwargs)
             else:
                 logger.info('requesting access with redirect uri: %s', redirect_uri)
-                response = HttpResponseRedirect(oauth_url)
+                # response = HttpResponseRedirect(oauth_url)
+                redirect_script = '<html><body><script type="text/javascript">window.top.location.href="%s"</script></body></html>'%(oauth_url)
+                response = HttpResponse(redirect_script)
                 return response
         return _wrapped_view
     
